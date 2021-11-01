@@ -36,8 +36,6 @@ namespace GestionPersonas.Migrations
 
                     b.HasKey("AporteId");
 
-                    b.HasIndex("PersonaId");
-
                     b.ToTable("Aportes");
                 });
 
@@ -47,7 +45,7 @@ namespace GestionPersonas.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<int?>("AportesAporteId")
+                    b.Property<int?>("AporteId")
                         .HasColumnType("INTEGER");
 
                     b.Property<int?>("PersonaId")
@@ -61,7 +59,7 @@ namespace GestionPersonas.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("AportesAporteId");
+                    b.HasIndex("AporteId");
 
                     b.HasIndex("PersonaId");
 
@@ -179,22 +177,11 @@ namespace GestionPersonas.Migrations
                     b.ToTable("TiposAportes");
                 });
 
-            modelBuilder.Entity("GestionPersonas.Entidades.Aportes", b =>
-                {
-                    b.HasOne("GestionPersonas.Entidades.Personas", "Persona")
-                        .WithMany()
-                        .HasForeignKey("PersonaId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Persona");
-                });
-
             modelBuilder.Entity("GestionPersonas.Entidades.AportesDetalle", b =>
                 {
                     b.HasOne("GestionPersonas.Entidades.Aportes", null)
                         .WithMany("DetalleAporte")
-                        .HasForeignKey("AportesAporteId");
+                        .HasForeignKey("AporteId");
 
                     b.HasOne("GestionPersonas.Entidades.Personas", "Persona")
                         .WithMany()

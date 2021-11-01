@@ -22,6 +22,7 @@ namespace GestionPersonas.UI.Registros
     public partial class rAportes : Window
     {
         private Aportes aporte = new Aportes();
+        private AportesDetalle detalles = new AportesDetalle();
         public rAportes()
         {
             InitializeComponent();
@@ -36,7 +37,7 @@ namespace GestionPersonas.UI.Registros
             TipoAporteComboBox.DisplayMemberPath = "Descripcion";
 
             Limpiar();
-            ValorTextBox.Text = "0.00";
+            ValorTextBox.Text = detalles.Valor.ToString("N2");
             MontoTextBox.Text = "0.00";
         }
         private void Cargar()

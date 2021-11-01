@@ -31,6 +31,8 @@ namespace GestionPersonas.BLL
 
                 foreach (var detalle in aporte.DetalleAporte)
                 {
+                    contexto.Entry(detalle.TiposAporte).State = EntityState.Modified;
+                    contexto.Entry(detalle.Persona).State = EntityState.Modified;
                     detalle.TiposAporte.Logrado += aporte.Monto;
                     detalle.Persona.TotalAportado += detalle.Valor;
                 }
@@ -64,6 +66,7 @@ namespace GestionPersonas.BLL
                 //busca la entidad en la base de datos y la elimina
                 foreach (var detalle in aporteAnterior.DetalleAporte)
                 {
+
                     detalle.Persona.TotalAportado -= aporte.Monto;
                     detalle.TiposAporte.Logrado -= detalle.Valor;
                 }
@@ -72,9 +75,11 @@ namespace GestionPersonas.BLL
 
                 foreach (var item in aporte.DetalleAporte)
                 {
+                    contexto.Entry(item.TiposAporte).State = EntityState.Modified;
+                    contexto.Entry(item.Persona).State = EntityState.Modified;
                     item.Persona.TotalAportado += aporte.Monto;
                     item.TiposAporte.Logrado += item.Valor;
-                    contexto.Entry(item).State = EntityState.Added;
+                    //contexto.Entry(item).State = EntityState.Added;
                 }
 
                 //marcar la entidad como modificada para que el contexto sepa como proceder
@@ -106,6 +111,8 @@ namespace GestionPersonas.BLL
                     //busca la entidad en la base de datos y la elimina
                     foreach (var detalle in aporte.DetalleAporte)
                     {
+                        contexto.Entry(detalle.TiposAporte).State = EntityState.Modified;
+                        contexto.Entry(detalle.Persona).State = EntityState.Modified;
                         detalle.Persona.TotalAportado -= aporte.Monto;
                         detalle.TiposAporte.Logrado -= detalle.Valor;
                     }

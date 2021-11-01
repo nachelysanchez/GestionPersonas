@@ -31,6 +31,7 @@ namespace GestionPersonas.BLL
 
                 foreach (var detalle in grupo.Detalle)
                 {
+                    contexto.Entry(detalle.Persona).State = EntityState.Modified;
                     detalle.Persona.CantidadGrupos += 1;
                 }
 
@@ -71,7 +72,7 @@ namespace GestionPersonas.BLL
                 foreach (var item in grupo.Detalle)
                 {
                     item.Persona.CantidadGrupos += 1;
-                    contexto.Entry(item).State = EntityState.Added;
+                    contexto.Entry(item.Persona).State = EntityState.Modified;
                 }
 
                 //marcar la entidad como modificada para que el contexto sepa como proceder
@@ -103,6 +104,7 @@ namespace GestionPersonas.BLL
                     //busca la entidad en la base de datos y la elimina
                     foreach (var detalle in grupo.Detalle)
                     {
+                        contexto.Entry(detalle.Persona).State = EntityState.Modified;
                         detalle.Persona.CantidadGrupos -= 1;
                     }
 

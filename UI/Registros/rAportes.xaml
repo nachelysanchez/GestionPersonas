@@ -36,9 +36,9 @@
                         <StackPanel Margin="10">
                             
                             <Label Content="Tipo de Aporte"/>
-                            <ComboBox x:Name="TipoAporteComboBox" SelectedValue="{Binding DetalleAporte.TipoAporteId}" />
+                            <ComboBox x:Name="TipoAporteComboBox" />
                             <Label Content="Valor a aportar"/>
-                            <TextBox x:Name="ValorTextBox" Text="{Binding DetalleAporte.Valor, StringFormat=N2}"/>
+                            <TextBox x:Name="ValorTextBox" />
                             <StackPanel Orientation="Horizontal">
                                 <Button x:Name="AgregarFilaButton" Margin="10" Click="AgregarFilaButton_Click" Width="123">
                                     <StackPanel Orientation="Horizontal">

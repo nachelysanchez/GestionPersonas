@@ -35,9 +35,9 @@
                     <GroupBox Header="Detalles de grupo">
                         <StackPanel Margin="10">
                             <Label Content="Persona"/>
-                            <ComboBox x:Name="PersonaComboBox" SelectedValue="{Binding PersonaId}" />
+                            <ComboBox x:Name="PersonaComboBox" />
                             <Label Content="Orden"/>
-                            <TextBox x:Name="OrdenTextBox" Text="{Binding Detalle.Orden}"/>
+                            <TextBox x:Name="OrdenTextBox"/>
                             <StackPanel Orientation="Horizontal">
                                 <Button x:Name="AgregarFilaButton" Margin="10" Click="AgregarFilaButton_Click" Width="123">
                                     <StackPanel Orientation="Horizontal">
